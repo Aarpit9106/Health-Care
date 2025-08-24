@@ -22,25 +22,27 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/medication" element={<Medication />} />
-          <Route path="/mood-monitor" element={<MoodMonitor />} />
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/image-detector" element={<ImageDetector />} />
-          <Route path="/cost-calculator" element={<CostCalculator />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/settings" element={<Settings />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/medication" element={<Medication />} />
+            <Route path="/mood-monitor" element={<MoodMonitor />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/image-detector" element={<ImageDetector />} />
+            <Route path="/cost-calculator" element={<CostCalculator />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/settings" element={<Settings />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
