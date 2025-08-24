@@ -379,20 +379,70 @@ export default function Settings() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     <div>
-                      <Label htmlFor="theme">Theme</Label>
-                      <Select value={preferences.theme} onValueChange={(value) => setPreferences({...preferences, theme: value})}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="light">Light</SelectItem>
-                          <SelectItem value="dark">Dark</SelectItem>
-                          <SelectItem value="system">System</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Label className="text-base font-medium mb-4 block">Theme Appearance</Label>
+                      <div className="grid grid-cols-3 gap-4">
+                        <div
+                          className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                            theme === 'light'
+                              ? 'border-medical-teal bg-medical-teal/5'
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                          onClick={() => setTheme('light')}
+                        >
+                          <div className="flex flex-col items-center space-y-2">
+                            <Sun className="w-6 h-6 text-yellow-500" />
+                            <span className="text-sm font-medium">Light</span>
+                            <div className="w-full h-6 bg-white border rounded flex items-center justify-center">
+                              <div className="w-3 h-3 bg-gray-200 rounded"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                            theme === 'dark'
+                              ? 'border-medical-teal bg-medical-teal/5'
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                          onClick={() => setTheme('dark')}
+                        >
+                          <div className="flex flex-col items-center space-y-2">
+                            <Moon className="w-6 h-6 text-blue-600" />
+                            <span className="text-sm font-medium">Dark</span>
+                            <div className="w-full h-6 bg-gray-800 border rounded flex items-center justify-center">
+                              <div className="w-3 h-3 bg-gray-600 rounded"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                            theme === 'system'
+                              ? 'border-medical-teal bg-medical-teal/5'
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                          onClick={() => setTheme('system')}
+                        >
+                          <div className="flex flex-col items-center space-y-2">
+                            <Monitor className="w-6 h-6 text-gray-600" />
+                            <span className="text-sm font-medium">System</span>
+                            <div className="w-full h-6 border rounded flex">
+                              <div className="w-1/2 bg-white"></div>
+                              <div className="w-1/2 bg-gray-800"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-500 mt-3">
+                        Current theme: <span className="font-medium capitalize">{actualTheme}</span>
+                        {theme === 'system' && ' (following system preference)'}
+                      </p>
                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="language">Language</Label>
                       <Select value={preferences.language} onValueChange={(value) => setPreferences({...preferences, language: value})}>
