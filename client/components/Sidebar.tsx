@@ -85,7 +85,7 @@ export function Sidebar() {
       </nav>
 
       {/* Settings */}
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-200 space-y-2">
         <Link
           to="/settings"
           className={cn(
@@ -98,6 +98,20 @@ export function Sidebar() {
           <Settings className="w-5 h-5" />
           <span>Settings</span>
         </Link>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={toggleTheme}
+          className="w-full justify-start text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >
+          {actualTheme === 'light' ? (
+            <Moon className="w-5 h-5 mr-3" />
+          ) : (
+            <Sun className="w-5 h-5 mr-3" />
+          )}
+          <span>{actualTheme === 'light' ? 'Dark Mode' : 'Light Mode'}</span>
+        </Button>
       </div>
     </div>
   );
