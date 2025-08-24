@@ -3,7 +3,7 @@ import { Play, ArrowRight, CheckCircle, Award, Star } from "lucide-react";
 
 export function Hero() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-black dark:to-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-medical-teal rounded-full blur-3xl" />
