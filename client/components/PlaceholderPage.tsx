@@ -13,10 +13,10 @@ export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
       <Sidebar />
       <main className="flex-1 overflow-auto bg-background">
         <div className="flex items-center justify-center min-h-screen px-8">
-          <div className="text-center text-white space-y-6 max-w-md">
+          <div className="text-center text-foreground space-y-6 max-w-md">
             <Construction className="w-16 h-16 mx-auto text-medical-teal" />
             <h1 className="text-3xl font-bold">{title}</h1>
-            <p className="text-gray-300">
+            <p className="text-muted-foreground">
               {description || `The ${title} page is under construction. Continue prompting to help build out this page's content.`}
             </p>
             <Button 
