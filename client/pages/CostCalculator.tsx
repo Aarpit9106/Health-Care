@@ -4,21 +4,27 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Calculator, 
-  DollarSign, 
-  TrendingUp, 
-  Heart, 
-  Activity, 
+import {
+  Calculator,
+  DollarSign,
+  TrendingUp,
+  Heart,
+  Activity,
   Stethoscope,
   Pill,
   Building,
   Shield,
   Info,
-  Search
+  Search,
 } from "lucide-react";
 
 interface CostEstimate {
@@ -45,15 +51,23 @@ export default function CostCalculator() {
 
   const procedures = [
     { name: "Annual Physical Exam", basePrice: 300, category: "Preventive" },
-    { name: "Blood Test (Complete Panel)", basePrice: 250, category: "Laboratory" },
+    {
+      name: "Blood Test (Complete Panel)",
+      basePrice: 250,
+      category: "Laboratory",
+    },
     { name: "Chest X-Ray", basePrice: 200, category: "Imaging" },
     { name: "MRI Scan", basePrice: 2500, category: "Imaging" },
     { name: "CT Scan", basePrice: 1500, category: "Imaging" },
     { name: "Colonoscopy", basePrice: 1200, category: "Procedure" },
     { name: "Echocardiogram", basePrice: 800, category: "Cardiovascular" },
-    { name: "Dermatology Consultation", basePrice: 350, category: "Specialist" },
+    {
+      name: "Dermatology Consultation",
+      basePrice: 350,
+      category: "Specialist",
+    },
     { name: "Emergency Room Visit", basePrice: 1500, category: "Emergency" },
-    { name: "Urgent Care Visit", basePrice: 200, category: "Urgent Care" }
+    { name: "Urgent Care Visit", basePrice: 200, category: "Urgent Care" },
   ];
 
   const medications = [
@@ -62,7 +76,7 @@ export default function CostCalculator() {
     { name: "Atorvastatin (30 days)", basePrice: 35, category: "Cholesterol" },
     { name: "Omeprazole (30 days)", basePrice: 40, category: "Acid Reflux" },
     { name: "Albuterol Inhaler", basePrice: 75, category: "Respiratory" },
-    { name: "Insulin (Monthly)", basePrice: 300, category: "Diabetes" }
+    { name: "Insulin (Monthly)", basePrice: 300, category: "Diabetes" },
   ];
 
   const insurancePlans: Record<string, InsurancePlan> = {
@@ -71,34 +85,35 @@ export default function CostCalculator() {
       deductible: 3000,
       copay: 30,
       coinsurance: 20,
-      outOfPocketMax: 8000
+      outOfPocketMax: 8000,
     },
     standard: {
       name: "Standard Plan",
       deductible: 1500,
       copay: 25,
       coinsurance: 15,
-      outOfPocketMax: 6000
+      outOfPocketMax: 6000,
     },
     premium: {
       name: "Premium Plan",
       deductible: 500,
       copay: 15,
       coinsurance: 10,
-      outOfPocketMax: 4000
-    }
+      outOfPocketMax: 4000,
+    },
   };
 
   const locationMultipliers = {
     rural: 0.8,
     suburban: 1.0,
     urban: 1.2,
-    metropolitan: 1.5
+    metropolitan: 1.5,
   };
 
   const calculateCost = (item: any, type: "procedure" | "medication") => {
     const plan = insurancePlans[selectedInsurance];
-    const locationMultiplier = locationMultipliers[location as keyof typeof locationMultipliers];
+    const locationMultiplier =
+      locationMultipliers[location as keyof typeof locationMultipliers];
     const adjustedPrice = item.basePrice * locationMultiplier;
 
     let insuranceCoverage = 0;
@@ -127,7 +142,7 @@ export default function CostCalculator() {
       basePrice: adjustedPrice,
       insuranceCoverage,
       outOfPocket,
-      category: item.category
+      category: item.category,
     };
   };
 
@@ -136,8 +151,14 @@ export default function CostCalculator() {
     setEstimates([estimate, ...estimates]);
   };
 
-  const totalOutOfPocket = estimates.reduce((sum, est) => sum + est.outOfPocket, 0);
-  const totalInsuranceCoverage = estimates.reduce((sum, est) => sum + est.insuranceCoverage, 0);
+  const totalOutOfPocket = estimates.reduce(
+    (sum, est) => sum + est.outOfPocket,
+    0,
+  );
+  const totalInsuranceCoverage = estimates.reduce(
+    (sum, est) => sum + est.insuranceCoverage,
+    0,
+  );
 
   const currentPlan = insurancePlans[selectedInsurance];
 
@@ -148,8 +169,12 @@ export default function CostCalculator() {
         <div className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Healthcare Cost Calculator</h1>
-            <p className="text-gray-600 mt-2">Estimate costs for procedures, treatments, and medications</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Healthcare Cost Calculator
+            </h1>
+            <p className="text-gray-600 mt-2">
+              Estimate costs for procedures, treatments, and medications
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -165,22 +190,29 @@ export default function CostCalculator() {
                 <CardContent className="space-y-4">
                   <div>
                     <Label htmlFor="insurance">Select Plan</Label>
-                    <Select value={selectedInsurance} onValueChange={setSelectedInsurance}>
+                    <Select
+                      value={selectedInsurance}
+                      onValueChange={setSelectedInsurance}
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
                         {Object.entries(insurancePlans).map(([key, plan]) => (
-                          <SelectItem key={key} value={key}>{plan.name}</SelectItem>
+                          <SelectItem key={key} value={key}>
+                            {plan.name}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
-                  
+
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span>Deductible:</span>
-                      <span className="font-medium">${currentPlan.deductible}</span>
+                      <span className="font-medium">
+                        ${currentPlan.deductible}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Copay:</span>
@@ -188,11 +220,15 @@ export default function CostCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span>Coinsurance:</span>
-                      <span className="font-medium">{currentPlan.coinsurance}%</span>
+                      <span className="font-medium">
+                        {currentPlan.coinsurance}%
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Out-of-pocket max:</span>
-                      <span className="font-medium">${currentPlan.outOfPocketMax}</span>
+                      <span className="font-medium">
+                        ${currentPlan.outOfPocketMax}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -214,9 +250,13 @@ export default function CostCalculator() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="rural">Rural (-20%)</SelectItem>
-                        <SelectItem value="suburban">Suburban (baseline)</SelectItem>
+                        <SelectItem value="suburban">
+                          Suburban (baseline)
+                        </SelectItem>
                         <SelectItem value="urban">Urban (+20%)</SelectItem>
-                        <SelectItem value="metropolitan">Metropolitan (+50%)</SelectItem>
+                        <SelectItem value="metropolitan">
+                          Metropolitan (+50%)
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -234,15 +274,21 @@ export default function CostCalculator() {
                 <CardContent className="space-y-3">
                   <div className="flex justify-between">
                     <span>Total Estimated Cost:</span>
-                    <span className="font-bold">${(totalOutOfPocket + totalInsuranceCoverage).toFixed(2)}</span>
+                    <span className="font-bold">
+                      ${(totalOutOfPocket + totalInsuranceCoverage).toFixed(2)}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Insurance Coverage:</span>
-                    <span className="font-medium text-green-600">${totalInsuranceCoverage.toFixed(2)}</span>
+                    <span className="font-medium text-green-600">
+                      ${totalInsuranceCoverage.toFixed(2)}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Your Out-of-Pocket:</span>
-                    <span className="font-bold text-red-600">${totalOutOfPocket.toFixed(2)}</span>
+                    <span className="font-bold text-red-600">
+                      ${totalOutOfPocket.toFixed(2)}
+                    </span>
                   </div>
                 </CardContent>
               </Card>
@@ -252,7 +298,9 @@ export default function CostCalculator() {
             <div className="lg:col-span-2 space-y-6">
               <Tabs defaultValue="procedures">
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="procedures">Procedures & Tests</TabsTrigger>
+                  <TabsTrigger value="procedures">
+                    Procedures & Tests
+                  </TabsTrigger>
                   <TabsTrigger value="medications">Medications</TabsTrigger>
                 </TabsList>
 
@@ -264,18 +312,27 @@ export default function CostCalculator() {
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {procedures.map((procedure, index) => (
-                          <div key={index} className="p-4 border rounded-lg hover:border-medical-teal transition-colors">
+                          <div
+                            key={index}
+                            className="p-4 border rounded-lg hover:border-medical-teal transition-colors"
+                          >
                             <div className="flex items-center justify-between mb-2">
-                              <h4 className="font-medium text-gray-900">{procedure.name}</h4>
-                              <Badge variant="outline">{procedure.category}</Badge>
+                              <h4 className="font-medium text-gray-900">
+                                {procedure.name}
+                              </h4>
+                              <Badge variant="outline">
+                                {procedure.category}
+                              </Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span className="text-sm text-gray-600">
                                 Base: ${procedure.basePrice}
                               </span>
-                              <Button 
-                                size="sm" 
-                                onClick={() => addEstimate(procedure, "procedure")}
+                              <Button
+                                size="sm"
+                                onClick={() =>
+                                  addEstimate(procedure, "procedure")
+                                }
                                 className="bg-medical-teal hover:bg-medical-teal/90"
                               >
                                 <Calculator className="w-4 h-4 mr-1" />
@@ -297,18 +354,27 @@ export default function CostCalculator() {
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {medications.map((medication, index) => (
-                          <div key={index} className="p-4 border rounded-lg hover:border-medical-teal transition-colors">
+                          <div
+                            key={index}
+                            className="p-4 border rounded-lg hover:border-medical-teal transition-colors"
+                          >
                             <div className="flex items-center justify-between mb-2">
-                              <h4 className="font-medium text-gray-900">{medication.name}</h4>
-                              <Badge variant="outline">{medication.category}</Badge>
+                              <h4 className="font-medium text-gray-900">
+                                {medication.name}
+                              </h4>
+                              <Badge variant="outline">
+                                {medication.category}
+                              </Badge>
                             </div>
                             <div className="flex items-center justify-between">
                               <span className="text-sm text-gray-600">
                                 Base: ${medication.basePrice}
                               </span>
-                              <Button 
-                                size="sm" 
-                                onClick={() => addEstimate(medication, "medication")}
+                              <Button
+                                size="sm"
+                                onClick={() =>
+                                  addEstimate(medication, "medication")
+                                }
                                 className="bg-medical-teal hover:bg-medical-teal/90"
                               >
                                 <Calculator className="w-4 h-4 mr-1" />
@@ -329,8 +395,8 @@ export default function CostCalculator() {
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle>Cost Estimates</CardTitle>
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         size="sm"
                         onClick={() => setEstimates([])}
                       >
@@ -343,21 +409,29 @@ export default function CostCalculator() {
                       {estimates.map((estimate, index) => (
                         <div key={index} className="p-4 bg-gray-50 rounded-lg">
                           <div className="flex items-center justify-between mb-2">
-                            <h4 className="font-medium text-gray-900">{estimate.item}</h4>
+                            <h4 className="font-medium text-gray-900">
+                              {estimate.item}
+                            </h4>
                             <Badge variant="outline">{estimate.category}</Badge>
                           </div>
                           <div className="grid grid-cols-3 gap-4 text-sm">
                             <div>
                               <p className="text-gray-600">Total Cost</p>
-                              <p className="font-medium">${estimate.basePrice.toFixed(2)}</p>
+                              <p className="font-medium">
+                                ${estimate.basePrice.toFixed(2)}
+                              </p>
                             </div>
                             <div>
                               <p className="text-gray-600">Insurance Pays</p>
-                              <p className="font-medium text-green-600">${estimate.insuranceCoverage.toFixed(2)}</p>
+                              <p className="font-medium text-green-600">
+                                ${estimate.insuranceCoverage.toFixed(2)}
+                              </p>
                             </div>
                             <div>
                               <p className="text-gray-600">You Pay</p>
-                              <p className="font-bold text-red-600">${estimate.outOfPocket.toFixed(2)}</p>
+                              <p className="font-bold text-red-600">
+                                ${estimate.outOfPocket.toFixed(2)}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -375,9 +449,11 @@ export default function CostCalculator() {
                     <div className="text-yellow-800">
                       <p className="font-medium">Cost Estimate Disclaimer</p>
                       <p className="text-sm mt-1">
-                        These are estimated costs based on national averages and your selected insurance plan. 
-                        Actual costs may vary significantly based on provider, location, and specific medical circumstances. 
-                        Always verify costs with your healthcare provider and insurance company.
+                        These are estimated costs based on national averages and
+                        your selected insurance plan. Actual costs may vary
+                        significantly based on provider, location, and specific
+                        medical circumstances. Always verify costs with your
+                        healthcare provider and insurance company.
                       </p>
                     </div>
                   </div>

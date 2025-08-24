@@ -3,32 +3,32 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
   BarChart,
   Bar,
   AreaChart,
-  Area
+  Area,
 } from "recharts";
-import { 
-  Activity, 
-  Heart, 
-  Pill, 
-  Brain, 
-  BookOpen, 
-  TrendingUp, 
+import {
+  Activity,
+  Heart,
+  Pill,
+  Brain,
+  BookOpen,
+  TrendingUp,
   TrendingDown,
   AlertCircle,
   CheckCircle2,
   Calendar,
   Users,
-  Clock
+  Clock,
 } from "lucide-react";
 
 export default function Dashboard() {
@@ -39,7 +39,7 @@ export default function Dashboard() {
     journalEntries: 12,
     symptomsThisWeek: 3,
     upcomingAppointments: 2,
-    exerciseDays: 5
+    exerciseDays: 5,
   };
 
   const moodTrendData = [
@@ -49,7 +49,7 @@ export default function Dashboard() {
     { day: "Thu", mood: 4, energy: 4, stress: 2 },
     { day: "Fri", mood: 4, energy: 3, stress: 3 },
     { day: "Sat", mood: 5, energy: 5, stress: 1 },
-    { day: "Sun", mood: 4, energy: 4, stress: 2 }
+    { day: "Sun", mood: 4, energy: 4, stress: 2 },
   ];
 
   const medicationData = [
@@ -59,14 +59,14 @@ export default function Dashboard() {
     { day: "Thu", taken: 2, total: 2 },
     { day: "Fri", taken: 2, total: 2 },
     { day: "Sat", taken: 2, total: 2 },
-    { day: "Sun", taken: 2, total: 2 }
+    { day: "Sun", taken: 2, total: 2 },
   ];
 
   const symptomFrequency = [
     { symptom: "Headache", count: 3 },
     { symptom: "Fatigue", count: 2 },
     { symptom: "Stomach Pain", count: 1 },
-    { symptom: "Dizziness", count: 1 }
+    { symptom: "Dizziness", count: 1 },
   ];
 
   const recentActivities = [
@@ -76,7 +76,7 @@ export default function Dashboard() {
       title: "Metformin taken",
       time: "2 hours ago",
       icon: Pill,
-      color: "text-green-600"
+      color: "text-green-600",
     },
     {
       id: 2,
@@ -84,7 +84,7 @@ export default function Dashboard() {
       title: "Mood logged: Good",
       time: "4 hours ago",
       icon: Brain,
-      color: "text-blue-600"
+      color: "text-blue-600",
     },
     {
       id: 3,
@@ -92,7 +92,7 @@ export default function Dashboard() {
       title: "New journal entry added",
       time: "1 day ago",
       icon: BookOpen,
-      color: "text-purple-600"
+      color: "text-purple-600",
     },
     {
       id: 4,
@@ -100,8 +100,8 @@ export default function Dashboard() {
       title: "Mild headache logged",
       time: "2 days ago",
       icon: AlertCircle,
-      color: "text-orange-600"
-    }
+      color: "text-orange-600",
+    },
   ];
 
   const upcomingTasks = [
@@ -110,22 +110,22 @@ export default function Dashboard() {
       task: "Take evening medication",
       time: "8:00 PM",
       type: "medication",
-      urgent: false
+      urgent: false,
     },
     {
       id: 2,
       task: "Dr. Smith appointment",
       time: "Tomorrow 10:00 AM",
       type: "appointment",
-      urgent: true
+      urgent: true,
     },
     {
       id: 3,
       task: "Weekly mood check-in",
       time: "In 2 days",
       type: "mood",
-      urgent: false
-    }
+      urgent: false,
+    },
   ];
 
   return (
@@ -135,8 +135,12 @@ export default function Dashboard() {
         <div className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Health Dashboard</h1>
-            <p className="text-gray-600 mt-2">Overview of your health metrics and progress</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Health Dashboard
+            </h1>
+            <p className="text-gray-600 mt-2">
+              Overview of your health metrics and progress
+            </p>
           </div>
 
           {/* Key Metrics Cards */}
@@ -145,14 +149,21 @@ export default function Dashboard() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Medication Adherence</p>
-                    <p className="text-2xl font-bold text-gray-900">{healthMetrics.medicationAdherence}%</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Medication Adherence
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {healthMetrics.medicationAdherence}%
+                    </p>
                   </div>
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                     <Pill className="w-6 h-6 text-green-600" />
                   </div>
                 </div>
-                <Progress value={healthMetrics.medicationAdherence} className="mt-3" />
+                <Progress
+                  value={healthMetrics.medicationAdherence}
+                  className="mt-3"
+                />
               </CardContent>
             </Card>
 
@@ -160,8 +171,12 @@ export default function Dashboard() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Average Mood</p>
-                    <p className="text-2xl font-bold text-gray-900">{healthMetrics.avgMoodScore}/5</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Average Mood
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {healthMetrics.avgMoodScore}/5
+                    </p>
                   </div>
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                     <Brain className="w-6 h-6 text-blue-600" />
@@ -169,7 +184,9 @@ export default function Dashboard() {
                 </div>
                 <div className="mt-3 flex items-center">
                   <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">+0.3 from last week</span>
+                  <span className="text-sm text-green-600">
+                    +0.3 from last week
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -178,8 +195,12 @@ export default function Dashboard() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Journal Entries</p>
-                    <p className="text-2xl font-bold text-gray-900">{healthMetrics.journalEntries}</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Journal Entries
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {healthMetrics.journalEntries}
+                    </p>
                   </div>
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                     <BookOpen className="w-6 h-6 text-purple-600" />
@@ -195,8 +216,12 @@ export default function Dashboard() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Weekly Symptoms</p>
-                    <p className="text-2xl font-bold text-gray-900">{healthMetrics.symptomsThisWeek}</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Weekly Symptoms
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {healthMetrics.symptomsThisWeek}
+                    </p>
                   </div>
                   <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                     <AlertCircle className="w-6 h-6 text-orange-600" />
@@ -204,7 +229,9 @@ export default function Dashboard() {
                 </div>
                 <div className="mt-3 flex items-center">
                   <TrendingDown className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-sm text-green-600">-2 from last week</span>
+                  <span className="text-sm text-green-600">
+                    -2 from last week
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -223,9 +250,27 @@ export default function Dashboard() {
                     <XAxis dataKey="day" />
                     <YAxis domain={[1, 5]} />
                     <Tooltip />
-                    <Line type="monotone" dataKey="mood" stroke="#06d6a0" strokeWidth={3} name="Mood" />
-                    <Line type="monotone" dataKey="energy" stroke="#22c55e" strokeWidth={2} name="Energy" />
-                    <Line type="monotone" dataKey="stress" stroke="#ef4444" strokeWidth={2} name="Stress" />
+                    <Line
+                      type="monotone"
+                      dataKey="mood"
+                      stroke="#06d6a0"
+                      strokeWidth={3}
+                      name="Mood"
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="energy"
+                      stroke="#22c55e"
+                      strokeWidth={2}
+                      name="Energy"
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="stress"
+                      stroke="#ef4444"
+                      strokeWidth={2}
+                      name="Stress"
+                    />
                   </LineChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -262,13 +307,24 @@ export default function Dashboard() {
                     {recentActivities.map((activity) => {
                       const IconComponent = activity.icon;
                       return (
-                        <div key={activity.id} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
-                          <div className={`w-8 h-8 rounded-full bg-white flex items-center justify-center`}>
-                            <IconComponent className={`w-4 h-4 ${activity.color}`} />
+                        <div
+                          key={activity.id}
+                          className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg"
+                        >
+                          <div
+                            className={`w-8 h-8 rounded-full bg-white flex items-center justify-center`}
+                          >
+                            <IconComponent
+                              className={`w-4 h-4 ${activity.color}`}
+                            />
                           </div>
                           <div className="flex-1">
-                            <p className="font-medium text-gray-900">{activity.title}</p>
-                            <p className="text-sm text-gray-500">{activity.time}</p>
+                            <p className="font-medium text-gray-900">
+                              {activity.title}
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              {activity.time}
+                            </p>
                           </div>
                         </div>
                       );
@@ -285,9 +341,14 @@ export default function Dashboard() {
               <CardContent>
                 <div className="space-y-3">
                   {upcomingTasks.map((task) => (
-                    <div key={task.id} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div
+                      key={task.id}
+                      className="flex items-center justify-between p-3 border rounded-lg"
+                    >
                       <div>
-                        <p className="font-medium text-gray-900 text-sm">{task.task}</p>
+                        <p className="font-medium text-gray-900 text-sm">
+                          {task.task}
+                        </p>
                         <p className="text-xs text-gray-500">{task.time}</p>
                       </div>
                       {task.urgent && (
@@ -314,16 +375,21 @@ export default function Dashboard() {
               <CardContent>
                 <div className="space-y-4">
                   {symptomFrequency.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
                       <span className="text-gray-700">{item.symptom}</span>
                       <div className="flex items-center space-x-2">
                         <div className="w-24 bg-gray-200 rounded-full h-2">
-                          <div 
-                            className="bg-medical-teal h-2 rounded-full" 
+                          <div
+                            className="bg-medical-teal h-2 rounded-full"
                             style={{ width: `${(item.count / 3) * 100}%` }}
                           />
                         </div>
-                        <span className="text-sm text-gray-500">{item.count}</span>
+                        <span className="text-sm text-gray-500">
+                          {item.count}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -340,24 +406,36 @@ export default function Dashboard() {
                   <div className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg">
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
                     <div>
-                      <p className="font-medium text-green-800">Great Progress!</p>
-                      <p className="text-sm text-green-700">Your medication adherence has improved by 15% this month.</p>
+                      <p className="font-medium text-green-800">
+                        Great Progress!
+                      </p>
+                      <p className="text-sm text-green-700">
+                        Your medication adherence has improved by 15% this
+                        month.
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
                     <Brain className="w-5 h-5 text-blue-600 mt-0.5" />
                     <div>
-                      <p className="font-medium text-blue-800">Mood Improvement</p>
-                      <p className="text-sm text-blue-700">Your average mood score is trending upward this week.</p>
+                      <p className="font-medium text-blue-800">
+                        Mood Improvement
+                      </p>
+                      <p className="text-sm text-blue-700">
+                        Your average mood score is trending upward this week.
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3 p-3 bg-orange-50 rounded-lg">
                     <AlertCircle className="w-5 h-5 text-orange-600 mt-0.5" />
                     <div>
                       <p className="font-medium text-orange-800">Reminder</p>
-                      <p className="text-sm text-orange-700">Don't forget your upcoming appointment with Dr. Smith tomorrow.</p>
+                      <p className="text-sm text-orange-700">
+                        Don't forget your upcoming appointment with Dr. Smith
+                        tomorrow.
+                      </p>
                     </div>
                   </div>
                 </div>

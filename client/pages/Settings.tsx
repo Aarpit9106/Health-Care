@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,7 +34,7 @@ import {
   Smartphone,
   Mail,
   Lock,
-  Monitor
+  Monitor,
 } from "lucide-react";
 
 export default function Settings() {
@@ -39,7 +45,7 @@ export default function Settings() {
     phone: "+1 (555) 123-4567",
     dateOfBirth: "1985-06-15",
     address: "123 Main St, Anytown, USA 12345",
-    emergencyContact: "Jane Doe - (555) 987-6543"
+    emergencyContact: "Jane Doe - (555) 987-6543",
   });
 
   const [notifications, setNotifications] = useState({
@@ -48,21 +54,21 @@ export default function Settings() {
     healthInsights: true,
     emailUpdates: false,
     smsAlerts: true,
-    weeklyReports: true
+    weeklyReports: true,
   });
 
   const [privacy, setPrivacy] = useState({
     dataSharing: false,
     analyticsOptIn: true,
     marketingEmails: false,
-    thirdPartyIntegration: false
+    thirdPartyIntegration: false,
   });
 
   const [preferences, setPreferences] = useState({
     language: "en",
     timezone: "America/New_York",
     dateFormat: "MM/DD/YYYY",
-    temperatureUnit: "fahrenheit"
+    temperatureUnit: "fahrenheit",
   });
 
   const { theme, actualTheme, setTheme, toggleTheme } = useTheme();
@@ -76,9 +82,24 @@ export default function Settings() {
   };
 
   const connectedDevices = [
-    { name: "iPhone 13 Pro", type: "Mobile", lastActive: "2 minutes ago", status: "active" },
-    { name: "MacBook Pro", type: "Desktop", lastActive: "1 hour ago", status: "active" },
-    { name: "iPad Air", type: "Tablet", lastActive: "3 days ago", status: "inactive" }
+    {
+      name: "iPhone 13 Pro",
+      type: "Mobile",
+      lastActive: "2 minutes ago",
+      status: "active",
+    },
+    {
+      name: "MacBook Pro",
+      type: "Desktop",
+      lastActive: "1 hour ago",
+      status: "active",
+    },
+    {
+      name: "iPad Air",
+      type: "Tablet",
+      lastActive: "3 days ago",
+      status: "inactive",
+    },
   ];
 
   const recentActivity = [
@@ -86,7 +107,7 @@ export default function Settings() {
     { action: "Updated mood entry", timestamp: "1 day ago" },
     { action: "Viewed dashboard", timestamp: "1 day ago" },
     { action: "Downloaded health report", timestamp: "3 days ago" },
-    { action: "Changed password", timestamp: "1 week ago" }
+    { action: "Changed password", timestamp: "1 week ago" },
   ];
 
   return (
@@ -97,7 +118,9 @@ export default function Settings() {
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
-            <p className="text-gray-600 mt-2">Manage your account preferences and privacy settings</p>
+            <p className="text-gray-600 mt-2">
+              Manage your account preferences and privacy settings
+            </p>
           </div>
 
           {saveSuccess && (
@@ -135,7 +158,12 @@ export default function Settings() {
                         <Input
                           id="firstName"
                           value={profile.firstName}
-                          onChange={(e) => setProfile({...profile, firstName: e.target.value})}
+                          onChange={(e) =>
+                            setProfile({
+                              ...profile,
+                              firstName: e.target.value,
+                            })
+                          }
                         />
                       </div>
                       <div>
@@ -143,7 +171,9 @@ export default function Settings() {
                         <Input
                           id="lastName"
                           value={profile.lastName}
-                          onChange={(e) => setProfile({...profile, lastName: e.target.value})}
+                          onChange={(e) =>
+                            setProfile({ ...profile, lastName: e.target.value })
+                          }
                         />
                       </div>
                     </div>
@@ -153,7 +183,9 @@ export default function Settings() {
                         id="email"
                         type="email"
                         value={profile.email}
-                        onChange={(e) => setProfile({...profile, email: e.target.value})}
+                        onChange={(e) =>
+                          setProfile({ ...profile, email: e.target.value })
+                        }
                       />
                     </div>
                     <div>
@@ -161,7 +193,9 @@ export default function Settings() {
                       <Input
                         id="phone"
                         value={profile.phone}
-                        onChange={(e) => setProfile({...profile, phone: e.target.value})}
+                        onChange={(e) =>
+                          setProfile({ ...profile, phone: e.target.value })
+                        }
                       />
                     </div>
                     <div>
@@ -170,7 +204,12 @@ export default function Settings() {
                         id="dateOfBirth"
                         type="date"
                         value={profile.dateOfBirth}
-                        onChange={(e) => setProfile({...profile, dateOfBirth: e.target.value})}
+                        onChange={(e) =>
+                          setProfile({
+                            ...profile,
+                            dateOfBirth: e.target.value,
+                          })
+                        }
                       />
                     </div>
                   </CardContent>
@@ -186,19 +225,31 @@ export default function Settings() {
                       <Textarea
                         id="address"
                         value={profile.address}
-                        onChange={(e) => setProfile({...profile, address: e.target.value})}
+                        onChange={(e) =>
+                          setProfile({ ...profile, address: e.target.value })
+                        }
                         rows={3}
                       />
                     </div>
                     <div>
-                      <Label htmlFor="emergencyContact">Emergency Contact</Label>
+                      <Label htmlFor="emergencyContact">
+                        Emergency Contact
+                      </Label>
                       <Input
                         id="emergencyContact"
                         value={profile.emergencyContact}
-                        onChange={(e) => setProfile({...profile, emergencyContact: e.target.value})}
+                        onChange={(e) =>
+                          setProfile({
+                            ...profile,
+                            emergencyContact: e.target.value,
+                          })
+                        }
                       />
                     </div>
-                    <Button onClick={handleSave} className="w-full bg-medical-teal hover:bg-medical-teal/90">
+                    <Button
+                      onClick={handleSave}
+                      className="w-full bg-medical-teal hover:bg-medical-teal/90"
+                    >
                       Save Profile Changes
                     </Button>
                   </CardContent>
@@ -219,66 +270,124 @@ export default function Settings() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Medication Reminders</Label>
-                        <p className="text-sm text-gray-600">Get notified when it's time to take your medications</p>
+                        <Label className="text-base font-medium">
+                          Medication Reminders
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Get notified when it's time to take your medications
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.medicationReminders}
-                        onCheckedChange={(checked) => setNotifications({...notifications, medicationReminders: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            medicationReminders: checked,
+                          })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Appointment Alerts</Label>
-                        <p className="text-sm text-gray-600">Receive reminders about upcoming appointments</p>
+                        <Label className="text-base font-medium">
+                          Appointment Alerts
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Receive reminders about upcoming appointments
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.appointmentAlerts}
-                        onCheckedChange={(checked) => setNotifications({...notifications, appointmentAlerts: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            appointmentAlerts: checked,
+                          })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Health Insights</Label>
-                        <p className="text-sm text-gray-600">Receive personalized health insights and recommendations</p>
+                        <Label className="text-base font-medium">
+                          Health Insights
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Receive personalized health insights and
+                          recommendations
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.healthInsights}
-                        onCheckedChange={(checked) => setNotifications({...notifications, healthInsights: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            healthInsights: checked,
+                          })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Email Updates</Label>
-                        <p className="text-sm text-gray-600">Receive health tips and platform updates via email</p>
+                        <Label className="text-base font-medium">
+                          Email Updates
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Receive health tips and platform updates via email
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.emailUpdates}
-                        onCheckedChange={(checked) => setNotifications({...notifications, emailUpdates: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            emailUpdates: checked,
+                          })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">SMS Alerts</Label>
-                        <p className="text-sm text-gray-600">Get important health alerts via text message</p>
+                        <Label className="text-base font-medium">
+                          SMS Alerts
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Get important health alerts via text message
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.smsAlerts}
-                        onCheckedChange={(checked) => setNotifications({...notifications, smsAlerts: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            smsAlerts: checked,
+                          })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Weekly Reports</Label>
-                        <p className="text-sm text-gray-600">Receive weekly health summary reports</p>
+                        <Label className="text-base font-medium">
+                          Weekly Reports
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Receive weekly health summary reports
+                        </p>
                       </div>
                       <Switch
                         checked={notifications.weeklyReports}
-                        onCheckedChange={(checked) => setNotifications({...notifications, weeklyReports: checked})}
+                        onCheckedChange={(checked) =>
+                          setNotifications({
+                            ...notifications,
+                            weeklyReports: checked,
+                          })
+                        }
                       />
                     </div>
                   </div>
-                  <Button onClick={handleSave} className="bg-medical-teal hover:bg-medical-teal/90">
+                  <Button
+                    onClick={handleSave}
+                    className="bg-medical-teal hover:bg-medical-teal/90"
+                  >
                     Save Notification Settings
                   </Button>
                 </CardContent>
@@ -298,42 +407,69 @@ export default function Settings() {
                   <CardContent className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Anonymous Data Sharing</Label>
-                        <p className="text-sm text-gray-600">Help improve healthcare research with anonymized data</p>
+                        <Label className="text-base font-medium">
+                          Anonymous Data Sharing
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Help improve healthcare research with anonymized data
+                        </p>
                       </div>
                       <Switch
                         checked={privacy.dataSharing}
-                        onCheckedChange={(checked) => setPrivacy({...privacy, dataSharing: checked})}
+                        onCheckedChange={(checked) =>
+                          setPrivacy({ ...privacy, dataSharing: checked })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Analytics</Label>
-                        <p className="text-sm text-gray-600">Allow usage analytics to improve the platform</p>
+                        <Label className="text-base font-medium">
+                          Analytics
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Allow usage analytics to improve the platform
+                        </p>
                       </div>
                       <Switch
                         checked={privacy.analyticsOptIn}
-                        onCheckedChange={(checked) => setPrivacy({...privacy, analyticsOptIn: checked})}
+                        onCheckedChange={(checked) =>
+                          setPrivacy({ ...privacy, analyticsOptIn: checked })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Marketing Communications</Label>
-                        <p className="text-sm text-gray-600">Receive marketing emails about new features</p>
+                        <Label className="text-base font-medium">
+                          Marketing Communications
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Receive marketing emails about new features
+                        </p>
                       </div>
                       <Switch
                         checked={privacy.marketingEmails}
-                        onCheckedChange={(checked) => setPrivacy({...privacy, marketingEmails: checked})}
+                        onCheckedChange={(checked) =>
+                          setPrivacy({ ...privacy, marketingEmails: checked })
+                        }
                       />
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label className="text-base font-medium">Third-party Integrations</Label>
-                        <p className="text-sm text-gray-600">Allow data sharing with connected health apps</p>
+                        <Label className="text-base font-medium">
+                          Third-party Integrations
+                        </Label>
+                        <p className="text-sm text-gray-600">
+                          Allow data sharing with connected health apps
+                        </p>
                       </div>
                       <Switch
                         checked={privacy.thirdPartyIntegration}
-                        onCheckedChange={(checked) => setPrivacy({...privacy, thirdPartyIntegration: checked})}
+                        onCheckedChange={(checked) =>
+                          setPrivacy({
+                            ...privacy,
+                            thirdPartyIntegration: checked,
+                          })
+                        }
                       />
                     </div>
                   </CardContent>
@@ -347,7 +483,9 @@ export default function Settings() {
                     <div className="flex justify-between items-center p-4 border rounded-lg">
                       <div>
                         <h4 className="font-medium">Export Your Data</h4>
-                        <p className="text-sm text-gray-600">Download all your health data in a portable format</p>
+                        <p className="text-sm text-gray-600">
+                          Download all your health data in a portable format
+                        </p>
                       </div>
                       <Button variant="outline">
                         <Download className="w-4 h-4 mr-2" />
@@ -356,8 +494,13 @@ export default function Settings() {
                     </div>
                     <div className="flex justify-between items-center p-4 border rounded-lg border-red-200 bg-red-50">
                       <div>
-                        <h4 className="font-medium text-red-900">Delete Account</h4>
-                        <p className="text-sm text-red-700">Permanently delete your account and all associated data</p>
+                        <h4 className="font-medium text-red-900">
+                          Delete Account
+                        </h4>
+                        <p className="text-sm text-red-700">
+                          Permanently delete your account and all associated
+                          data
+                        </p>
                       </div>
                       <Button variant="destructive">
                         <Trash2 className="w-4 h-4 mr-2" />
@@ -381,15 +524,17 @@ export default function Settings() {
                 <CardContent className="space-y-6">
                   <div className="space-y-6">
                     <div>
-                      <Label className="text-base font-medium mb-4 block">Theme Appearance</Label>
+                      <Label className="text-base font-medium mb-4 block">
+                        Theme Appearance
+                      </Label>
                       <div className="grid grid-cols-3 gap-4">
                         <div
                           className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                            theme === 'light'
-                              ? 'border-medical-teal bg-medical-teal/5'
-                              : 'border-gray-200 hover:border-gray-300'
+                            theme === "light"
+                              ? "border-medical-teal bg-medical-teal/5"
+                              : "border-gray-200 hover:border-gray-300"
                           }`}
-                          onClick={() => setTheme('light')}
+                          onClick={() => setTheme("light")}
                         >
                           <div className="flex flex-col items-center space-y-2">
                             <Sun className="w-6 h-6 text-yellow-500" />
@@ -402,11 +547,11 @@ export default function Settings() {
 
                         <div
                           className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                            theme === 'dark'
-                              ? 'border-medical-teal bg-medical-teal/5'
-                              : 'border-gray-200 hover:border-gray-300'
+                            theme === "dark"
+                              ? "border-medical-teal bg-medical-teal/5"
+                              : "border-gray-200 hover:border-gray-300"
                           }`}
-                          onClick={() => setTheme('dark')}
+                          onClick={() => setTheme("dark")}
                         >
                           <div className="flex flex-col items-center space-y-2">
                             <Moon className="w-6 h-6 text-blue-600" />
@@ -419,11 +564,11 @@ export default function Settings() {
 
                         <div
                           className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                            theme === 'system'
-                              ? 'border-medical-teal bg-medical-teal/5'
-                              : 'border-gray-200 hover:border-gray-300'
+                            theme === "system"
+                              ? "border-medical-teal bg-medical-teal/5"
+                              : "border-gray-200 hover:border-gray-300"
                           }`}
-                          onClick={() => setTheme('system')}
+                          onClick={() => setTheme("system")}
                         >
                           <div className="flex flex-col items-center space-y-2">
                             <Monitor className="w-6 h-6 text-gray-600" />
@@ -436,8 +581,11 @@ export default function Settings() {
                         </div>
                       </div>
                       <p className="text-sm text-gray-500 mt-3">
-                        Current theme: <span className="font-medium capitalize">{actualTheme}</span>
-                        {theme === 'system' && ' (following system preference)'}
+                        Current theme:{" "}
+                        <span className="font-medium capitalize">
+                          {actualTheme}
+                        </span>
+                        {theme === "system" && " (following system preference)"}
                       </p>
                     </div>
                   </div>
@@ -445,7 +593,12 @@ export default function Settings() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="language">Language</Label>
-                      <Select value={preferences.language} onValueChange={(value) => setPreferences({...preferences, language: value})}>
+                      <Select
+                        value={preferences.language}
+                        onValueChange={(value) =>
+                          setPreferences({ ...preferences, language: value })
+                        }
+                      >
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
@@ -459,21 +612,39 @@ export default function Settings() {
                     </div>
                     <div>
                       <Label htmlFor="timezone">Timezone</Label>
-                      <Select value={preferences.timezone} onValueChange={(value) => setPreferences({...preferences, timezone: value})}>
+                      <Select
+                        value={preferences.timezone}
+                        onValueChange={(value) =>
+                          setPreferences({ ...preferences, timezone: value })
+                        }
+                      >
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="America/New_York">Eastern Time</SelectItem>
-                          <SelectItem value="America/Chicago">Central Time</SelectItem>
-                          <SelectItem value="America/Denver">Mountain Time</SelectItem>
-                          <SelectItem value="America/Los_Angeles">Pacific Time</SelectItem>
+                          <SelectItem value="America/New_York">
+                            Eastern Time
+                          </SelectItem>
+                          <SelectItem value="America/Chicago">
+                            Central Time
+                          </SelectItem>
+                          <SelectItem value="America/Denver">
+                            Mountain Time
+                          </SelectItem>
+                          <SelectItem value="America/Los_Angeles">
+                            Pacific Time
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
                       <Label htmlFor="dateFormat">Date Format</Label>
-                      <Select value={preferences.dateFormat} onValueChange={(value) => setPreferences({...preferences, dateFormat: value})}>
+                      <Select
+                        value={preferences.dateFormat}
+                        onValueChange={(value) =>
+                          setPreferences({ ...preferences, dateFormat: value })
+                        }
+                      >
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
@@ -486,18 +657,31 @@ export default function Settings() {
                     </div>
                     <div>
                       <Label htmlFor="temperatureUnit">Temperature Unit</Label>
-                      <Select value={preferences.temperatureUnit} onValueChange={(value) => setPreferences({...preferences, temperatureUnit: value})}>
+                      <Select
+                        value={preferences.temperatureUnit}
+                        onValueChange={(value) =>
+                          setPreferences({
+                            ...preferences,
+                            temperatureUnit: value,
+                          })
+                        }
+                      >
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="fahrenheit">Fahrenheit (°F)</SelectItem>
+                          <SelectItem value="fahrenheit">
+                            Fahrenheit (°F)
+                          </SelectItem>
                           <SelectItem value="celsius">Celsius (°C)</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
-                  <Button onClick={handleSave} className="bg-medical-teal hover:bg-medical-teal/90">
+                  <Button
+                    onClick={handleSave}
+                    className="bg-medical-teal hover:bg-medical-teal/90"
+                  >
                     Save Preferences
                   </Button>
                 </CardContent>
@@ -530,17 +714,31 @@ export default function Settings() {
                           className="absolute right-0 top-0 h-full px-3"
                           onClick={() => setShowPassword(!showPassword)}
                         >
-                          {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                          {showPassword ? (
+                            <EyeOff className="w-4 h-4" />
+                          ) : (
+                            <Eye className="w-4 h-4" />
+                          )}
                         </Button>
                       </div>
                     </div>
                     <div>
                       <Label htmlFor="newPassword">New Password</Label>
-                      <Input id="newPassword" type="password" placeholder="Enter new password" />
+                      <Input
+                        id="newPassword"
+                        type="password"
+                        placeholder="Enter new password"
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                      <Input id="confirmPassword" type="password" placeholder="Confirm new password" />
+                      <Label htmlFor="confirmPassword">
+                        Confirm New Password
+                      </Label>
+                      <Input
+                        id="confirmPassword"
+                        type="password"
+                        placeholder="Confirm new password"
+                      />
                     </div>
                     <Button className="bg-medical-teal hover:bg-medical-teal/90">
                       Update Password
@@ -555,16 +753,27 @@ export default function Settings() {
                   <CardContent>
                     <div className="space-y-4">
                       {connectedDevices.map((device, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-3 border rounded-lg"
+                        >
                           <div className="flex items-center space-x-3">
                             <Smartphone className="w-5 h-5 text-gray-400" />
                             <div>
                               <p className="font-medium">{device.name}</p>
-                              <p className="text-sm text-gray-600">{device.type} • {device.lastActive}</p>
+                              <p className="text-sm text-gray-600">
+                                {device.type} • {device.lastActive}
+                              </p>
                             </div>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Badge variant={device.status === "active" ? "default" : "secondary"}>
+                            <Badge
+                              variant={
+                                device.status === "active"
+                                  ? "default"
+                                  : "secondary"
+                              }
+                            >
                               {device.status}
                             </Badge>
                             <Button variant="outline" size="sm">
@@ -584,9 +793,14 @@ export default function Settings() {
                   <CardContent>
                     <div className="space-y-3">
                       {recentActivity.map((activity, index) => (
-                        <div key={index} className="flex justify-between items-center p-2">
+                        <div
+                          key={index}
+                          className="flex justify-between items-center p-2"
+                        >
                           <span className="text-sm">{activity.action}</span>
-                          <span className="text-xs text-gray-500">{activity.timestamp}</span>
+                          <span className="text-xs text-gray-500">
+                            {activity.timestamp}
+                          </span>
                         </div>
                       ))}
                     </div>

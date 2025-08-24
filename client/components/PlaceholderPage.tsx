@@ -17,9 +17,10 @@ export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
             <Construction className="w-16 h-16 mx-auto text-medical-teal" />
             <h1 className="text-3xl font-bold">{title}</h1>
             <p className="text-muted-foreground">
-              {description || `The ${title} page is under construction. Continue prompting to help build out this page's content.`}
+              {description ||
+                `The ${title} page is under construction. Continue prompting to help build out this page's content.`}
             </p>
-            <Button 
+            <Button
               className="bg-medical-teal hover:bg-medical-teal/90 text-white"
               onClick={() => window.history.back()}
             >

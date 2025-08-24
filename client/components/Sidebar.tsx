@@ -12,7 +12,7 @@ import {
   Settings,
   User,
   Sun,
-  Moon
+  Moon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -73,12 +73,14 @@ export function Sidebar() {
                 "flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                 isActive
                   ? "bg-medical-teal-light text-medical-teal"
-                  : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
               )}
             >
               <item.icon className="w-5 h-5" />
               <span>{item.name}</span>
-              {isActive && <div className="w-2 h-2 bg-medical-teal rounded-full ml-auto" />}
+              {isActive && (
+                <div className="w-2 h-2 bg-medical-teal rounded-full ml-auto" />
+              )}
             </Link>
           );
         })}
@@ -92,7 +94,7 @@ export function Sidebar() {
             "flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
             location.pathname === "/settings"
               ? "bg-medical-teal-light text-medical-teal"
-              : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
           )}
         >
           <Settings className="w-5 h-5" />
@@ -105,12 +107,12 @@ export function Sidebar() {
           onClick={toggleTheme}
           className="w-full justify-start text-gray-700 hover:bg-gray-100 hover:text-gray-900"
         >
-          {actualTheme === 'light' ? (
+          {actualTheme === "light" ? (
             <Moon className="w-5 h-5 mr-3" />
           ) : (
             <Sun className="w-5 h-5 mr-3" />
           )}
-          <span>{actualTheme === 'light' ? 'Dark Mode' : 'Light Mode'}</span>
+          <span>{actualTheme === "light" ? "Dark Mode" : "Light Mode"}</span>
         </Button>
       </div>
     </div>
