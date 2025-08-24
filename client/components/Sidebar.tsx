@@ -31,6 +31,7 @@ const navigationItems = [
 
 export function Sidebar() {
   const location = useLocation();
+  const { actualTheme, toggleTheme } = useTheme();
 
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
