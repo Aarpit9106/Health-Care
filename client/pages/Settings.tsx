@@ -59,12 +59,13 @@ export default function Settings() {
   });
 
   const [preferences, setPreferences] = useState({
-    theme: "light",
     language: "en",
     timezone: "America/New_York",
     dateFormat: "MM/DD/YYYY",
     temperatureUnit: "fahrenheit"
   });
+
+  const { theme, actualTheme, setTheme, toggleTheme } = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
