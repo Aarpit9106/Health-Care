@@ -10,12 +10,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { 
-  Settings as SettingsIcon, 
-  User, 
-  Bell, 
-  Shield, 
-  Download, 
+import { useTheme } from "@/contexts/ThemeContext";
+import {
+  Settings as SettingsIcon,
+  User,
+  Bell,
+  Shield,
+  Download,
   Trash2,
   Eye,
   EyeOff,
@@ -26,7 +27,8 @@ import {
   Globe,
   Smartphone,
   Mail,
-  Lock
+  Lock,
+  Monitor
 } from "lucide-react";
 
 export default function Settings() {
