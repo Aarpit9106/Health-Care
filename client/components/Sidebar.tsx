@@ -1,18 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
-import { 
-  Heart, 
-  Home, 
-  Pill, 
-  Brain, 
-  BookOpen, 
-  BarChart3, 
-  Camera, 
-  Calculator, 
-  Info, 
+import {
+  Heart,
+  Home,
+  Pill,
+  Brain,
+  BookOpen,
+  BarChart3,
+  Camera,
+  Calculator,
+  Info,
   Settings,
-  User
+  User,
+  Sun,
+  Moon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/ThemeContext";
+import { Button } from "@/components/ui/button";
 
 const navigationItems = [
   { name: "Home", icon: Home, href: "/" },
