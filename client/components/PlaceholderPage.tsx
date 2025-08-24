@@ -11,7 +11,7 @@ export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <main className="flex-1 overflow-auto bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+      <main className="flex-1 overflow-auto bg-background">
         <div className="flex items-center justify-center min-h-screen px-8">
           <div className="text-center text-white space-y-6 max-w-md">
             <Construction className="w-16 h-16 mx-auto text-medical-teal" />
